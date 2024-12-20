@@ -6,11 +6,11 @@
 /*   By: imel-haj <imel-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 20:22:41 by imel-haj          #+#    #+#             */
-/*   Updated: 2024/12/09 16:48:57 by imel-haj         ###   ########.fr       */
+/*   Updated: 2024/12/20 12:18:54 by imel-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "get_next_line.h"
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -56,7 +56,7 @@ char	*ft_strdup(const char *s1)
 	return (str);
 }
 
-static void	join(char *str, char const *s1, char const *s2)
+void join(char *str, char const *s1, char const *s2)
 {
 	size_t	i;
 	size_t	j;
@@ -95,26 +95,39 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (str);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+// char	*ft_substr(char const *s, unsigned int start, size_t len)
+// {
+// 	unsigned int	i;
+// 	char			*str;
+
+// 	i = 0;
+// 	if (s == NULL)
+// 		return (NULL);
+// 	if (start >= ft_strlen(s))
+// 		return (ft_calloc(1, 1));
+// 	if ((start + len) > ft_strlen(s))
+// 		len = ft_strlen(s) - start;
+// 	str = malloc((len + 1) * sizeof(char));
+// 	if (!str)
+// 		return (NULL);
+// 	while (i < len)
+// 	{
+// 		str[i] = s[start + i];
+// 		i++;
+// 	}
+// 	str[i] = '\0';
+// 	return (str);
+// }
+
+
+size_t	ft_strlen(const char *str)
 {
-	unsigned int	i;
-	char			*str;
+	size_t	i;
 
 	i = 0;
-	if (s == NULL)
-		return (NULL);
-	if (start >= ft_strlen(s))
-		return (ft_calloc(1, 1));
-	if ((start + len) > ft_strlen(s))
-		len = ft_strlen(s) - start;
-	str = malloc((len + 1) * sizeof(char));
-	if (!str)
-		return (NULL);
-	while (i < len)
+	while (str[i])
 	{
-		str[i] = s[start + i];
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	return (i);
 }
